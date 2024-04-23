@@ -7,6 +7,17 @@ Parašykite funkcijas, kurios atliks nurodytas užduotis:
 2. funkcija "filterGraduated" - priima masyvą "students" ir grąžina naują masyvą,
    kuriame yra tik tie mokiniai, kurie jau baigė mokyklą (graduated: true).
 -------------------------------------------------------------------------- */
+function filterTopStudents(students) {
+  const topStudents = students.filter(student => student.averageGrade > 9);
+
+  return topStudents;
+}
+
+function filterGraduated(students) {
+  const graduatedStudents = students.filter(student => student.graduated);
+
+  return graduatedStudents;
+}
 
 const students = [
   { id: "1", name: "Alice Johnson", averageGrade: 8.5, graduated: false },
@@ -19,3 +30,5 @@ const students = [
   { id: "8", name: "Henry Wilson", averageGrade: 9.5, graduated: true },
   { id: "9", name: "Isabella Martinez", averageGrade: 8.6, graduated: false },
 ];
+console.log("Top Students:", filterTopStudents(students));
+console.log("Graduated Students:", filterGraduated(students));

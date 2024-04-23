@@ -5,6 +5,20 @@ Parašykite funkcijas, kurios atliks nurodytas užduotis:
 1. funkcija "getTotalSalary" - priima masyvą "employees" ir grąžina visų darbuotojų algų sumą kaip skaičių.
 2. funkcija "getJuniorEmployees" - priima masyvą "employees" ir grąžina naują masyvą, kuriame yra tik darbuotojai, kurie yra jaunesni nei 30 metai.
 -------------------------------------------------------------------------- */
+function getTotalSalary(employees) {
+ let totalSalary = 0;
+
+employees.forEach(employee => {
+  totalSalary += employee.salary;});
+
+  return totalSalary;
+}
+function getJuniorEmployees(employees) {
+  
+  const juniorEmployees = employees.filter(employee => employee.age < 30);
+
+  return juniorEmployees;
+}
 
 const employees = [
   { id: "1", name: "John Doe", age: 25, salary: 45000 },
@@ -17,3 +31,6 @@ const employees = [
   { id: "8", name: "Grace Lee", age: 32, salary: 58000 },
   { id: "9", name: "Henry Wilson", age: 27, salary: 51000 },
 ];
+
+console.log(getTotalSalary(employees));
+console.log(getJuniorEmployees(employees)); 

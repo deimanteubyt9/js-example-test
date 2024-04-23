@@ -11,3 +11,28 @@
 
 // API endpoint'as:
 // const ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+
+const ENDPOINT = 'https://jsonplaceholder.typicode.com/posts';
+const btn = document.getElementById('btn');
+const outputContainer = document.getElementById('output');
+const messageElement = document.getElementById('message');
+
+btn.addEventListener('click', async () => {
+  try {
+    const response = await fetch(ENDPOINT);
+    const data = await response.json();
+    const postsHTML = data.map((post) => {
+      return `
+        <div class="card">
+          <h2>${post.title}</h2>
+          <p>${post.body}</p>
+        </div>
+      `;
+    }).join('');
+    outputContainer.innerHTML = postsHTML;
+    messageElement.style.display = 'none';
+  } catch (error) {
+    console.error(error);
+    outputContainer.innerHTML = '<p>Error fetching data</p>';
+  }
+});
